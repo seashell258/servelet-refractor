@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_servelet_dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123   # 改成安全的密碼
+      MYSQL_DATABASE: data_servelet_demo
+      MYSQL_USER: seashell
+      MYSQL_PASSWORD: 147
+      TZ: "Asia/Taipei"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data_servelet_demo:/var/lib/mysql
+      - ./database/init_dev:/docker-entrypoint-initdb.d:ro  #把 init_dev資料夾設定成會自動跑腳本的資料夾 ( 後面那一大段名字是官方預設會跑腳本的資料夾 )
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data_servelet_demo:
