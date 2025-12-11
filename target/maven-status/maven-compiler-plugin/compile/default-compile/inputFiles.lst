@@ -1,4 +1,4 @@
-/home/seashell/servelet-refractor/src/main/java/com/seashell/jsp_demo/DashboardServlet.java
-/home/seashell/servelet-refractor/src/main/java/com/seashell/jsp_demo/JspDemoApplication.java
-/home/seashell/servelet-refractor/src/main/java/com/seashell/jsp_demo/domain_object/User.java
-/home/seashell/servelet-refractor/src/main/java/com/seashell/jsp_demo/repository/UserRepository.java
+/home/seashell/jsp_demo/src/main/java/com/seashell/jsp_demo/DashboardServlet.java
+/home/seashell/jsp_demo/src/main/java/com/seashell/jsp_demo/JspDemoApplication.java
+/home/seashell/jsp_demo/src/main/java/com/seashell/jsp_demo/domain_object/User.java
+/home/seashell/jsp_demo/src/main/java/com/seashell/jsp_demo/repository/UserRepository.java

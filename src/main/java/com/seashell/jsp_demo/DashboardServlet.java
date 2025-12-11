@@ -1,5 +1,7 @@
 package com.seashell.jsp_demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,13 +37,15 @@ public class DashboardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
+System.out.println("do get calledd");
         User user=userRepository.findById(1);
+        System.out.println("fetched user");
 
         req.setAttribute("user", user);
+        System.out.println("set req user dataa");
 
         // 3. forward 到 JSP  //從webapp根目錄找起路徑
         req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(req, resp);
-
+        System.out.println("forwarded");
     }
 }
