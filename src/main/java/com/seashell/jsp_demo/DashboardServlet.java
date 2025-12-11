@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 */
 
-@WebServlet("/aaa")
+@WebServlet("/home")
 public class DashboardServlet extends HttpServlet {
 
     @Autowired
