@@ -1,0 +1,16 @@
+# application.yml
+
+# 這是你剛才提到的資料庫連線配置
+spring:
+  datasource:
+    # JDBC URL 必須加上 'jdbc:' 前綴，這樣 Spring 才知道是 JDBC 協定
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=Asia/Taipei
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 建議同時設定，讓 Spring 知道用哪個連線池（預設是 HikariCP，速度很快）
+  # 關於 JdbcTemplate 的其他配置
+  jdbc:
+    template:
+      max-rows: 100
