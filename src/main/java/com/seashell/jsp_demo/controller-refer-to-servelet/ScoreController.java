@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model; //取代 set request attribute
+import org.springframework.beans.factory.annotation.Autowired;
 
 // Spring JDBC 相關
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.seashell.jsp_demo.repository.ScoreRepository;
+import com.seashell.jsp_demo.domain_object.Score;
 // Java 集合相關
 import java.util.List;
 import java.util.Map;
@@ -19,24 +23,19 @@ import java.util.HashMap; // 如果你在方法體內使用了 HashMap，也需�
 @RequestMapping("/api")
 public class ScoreController {
 
+    @Autowired
+    private ScoreRepository scoreRepository;
+
     private final JdbcTemplate jdbc;
 
     public ScoreController(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 
-    @PostMapping("/score")
-    public void addScore(@RequestBody Map<String, Object> body) {
-        jdbc.update(
-            "INSERT INTO scores(name, score) VALUES(?, ?)",
-            body.get("name"), body.get("score")
-        );
-    }
-
     @GetMapping("/leaderboard")
-    public List<Map<String, Object>> leaderboard() {
-        return jdbc.queryForList(
-            "SELECT name, score FROM scores ORDER BY score DESC FETCH FIRST 10 ROWS ONLY"
-        );
+    public String leaderboard(Model model) {
+        List<Score> scores  =scoreRepository.getLeaderboard();
+        model.addAttribute("scores", scores);
+        return "leaderboard"; // 對應 /WEB-INF/views/leaderboard.jsp
     }
 }

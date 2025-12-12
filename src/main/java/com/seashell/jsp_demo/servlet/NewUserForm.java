@@ -50,7 +50,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 
     User newUser = new User(name,password,email,status);
 
-    userRepository.save(newUser);
+    int createdRowNum = userRepository.save(newUser);
+    System.out.println("createdRowNum = " + createdRowNum);
 
     // 新增完 redirect 避免 F5 重複提交
     resp.sendRedirect(req.getContextPath() + "/register");

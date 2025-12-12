@@ -1,9 +1,12 @@
 com/seashell/jsp_demo/JspDemoApplication.class
 com/seashell/jsp_demo/controller_refer_to_servlet/ScoreController.class
 com/seashell/jsp_demo/domain_object/User.class
+com/seashell/jsp_demo/filter_config/FilterConfig.class
+com/seashell/jsp_demo/servlet/DashboardServlet.class
+com/seashell/jsp_demo/repository/ScoreRepository.class
+com/seashell/jsp_demo/domain_object/Score.class
 com/seashell/jsp_demo/filter/DashboardFilter.class
 com/seashell/jsp_demo/servlet/NewUserForm.class
 com/seashell/jsp_demo/repository/UserRepository$1.class
-com/seashell/jsp_demo/filter_config/FilterConfig.class
-com/seashell/jsp_demo/servlet/DashboardServlet.class
+com/seashell/jsp_demo/repository/ScoreRepository$1.class
 com/seashell/jsp_demo/repository/UserRepository.class
