@@ -21,7 +21,7 @@ public class DashboardFilter implements Filter {
         long start = System.currentTimeMillis();
 System.out.println("Filter front running...");
         try {
-            chain.doFilter(request, response);
+            chain.doFilter(request, response); //往下傳 繼續執行 最底層執行完之後 再一層層往上回傳
         } finally {
             long elapsed = System.currentTimeMillis() - start;
 

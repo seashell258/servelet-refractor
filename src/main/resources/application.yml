@@ -1,10 +1,12 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/data_servelet_demo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Taipei
-    username: seashell
-    password: 147
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    username: leaderboard
+    password: testPassword
+    driver-class-name: oracle.jdbc.OracleDriver
 
+
+# 讓 spring boot run 顯示更多 log 除錯
 logging:
   level:
     org:

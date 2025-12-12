@@ -1,25 +1,17 @@
-version: "3.8"
+version: '3.8'
+
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql_servelet_dev
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: 123   # 改成安全的密碼
-      MYSQL_DATABASE: data_servelet_demo
-      MYSQL_USER: seashell
-      MYSQL_PASSWORD: 147
-      TZ: "Asia/Taipei"
+  oracle:
+    image: gvenzl/oracle-xe
+    container_name: oracle-xe
     ports:
-      - "3306:3306"
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: oracle
     volumes:
-      - mysql_data_servelet_demo:/var/lib/mysql
-      - ./database/init_dev:/docker-entrypoint-initdb.d:ro  #把 init_dev資料夾設定成會自動跑腳本的資料夾 ( 後面那一大段名字是官方預設會跑腳本的資料夾 )
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - oracle-data-jspdemo:/opt/oracle/oradata
+      - ./databse/init_dev/oracle-init-user:/docker-entrypoint-initdb.d
+    restart: unless-stopped
 
 volumes:
-  mysql_data_servelet_demo:
+  oracle-data-jspdemo:

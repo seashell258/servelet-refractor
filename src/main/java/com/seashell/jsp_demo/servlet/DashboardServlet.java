@@ -1,4 +1,4 @@
-package com.seashell.jsp_demo;
+package com.seashell.jsp_demo.servlet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -13,3 +13,4 @@
     <p>Status: ${user.status}</p>
 </body>
 </html>
+
